@@ -200,6 +200,27 @@ class ButtonHTML extends ElementoHTMLBase {
     }
 }
 
+class ImageHTML extends ElementoHTMLBase {
+    src;
+    width;
+    height;
+
+    constructor(propiedades) {
+        super(propiedades);
+        this.src = propiedades.src || "";
+        this.width = propiedades.width || 200;
+        this.height = propiedades.height || 200;
+    }
+
+    construirElemento() {
+        let elementoBase = super.construirElemento();
+        elementoBase.style.width = `${this.width}px`;
+        elementoBase.style.height = `${this.height}px`;
+        elementoBase.src = this.src;
+        return elementoBase;
+    }
+}
+
 function popularPagina() {
     // Obtenemos referencia al contenedor de la pagina
     const contenedor = document.getElementById("contenedor");
@@ -469,6 +490,25 @@ function popularPagina() {
                         },
                     ],
                 },
+                {
+                    tipoDeTag: "div",
+                    hijos: [
+                        {
+                            tipoDeTag: "img",
+                            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
+                        },
+                    ],
+                },
+                {
+                    tipoDeTag: "div",
+                    hijos: [
+                        {
+                            tipoDeTag: "img",
+                            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png",
+                            width: 250,
+                        },
+                    ],
+                },
             ],
         },
         {
@@ -525,6 +565,9 @@ function obtenerClaseDelElemento(elemento) {
     }
     if (tagElemento === "button") {
         return new ButtonHTML(elemento);
+    }
+    if (tagElemento === "img") {
+        return new ImageHTML(elemento);
     }
 
     // Retornamos un elemento contenedor vacio si no encaja en ningun if anterior
