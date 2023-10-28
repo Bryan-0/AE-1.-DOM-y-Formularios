@@ -1,0 +1,72 @@
+* {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    align-items: start;
+}
+
+.formulario div input {
+    width: 95%;
+}
+
+.formulario div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.formulario-radio {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.formulario-radio div {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+select {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 6rem;
+}
+
+.form-input {
+    padding: 6px 10px;
+    border-radius: 2px;
+    border: 1px solid gray;
+}
+
+.form-input:focus {
+    outline: none;
+    outline: 1px solid rgb(91, 91, 91);
+}
+
+.seccion-enviar {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn-enviar {
+    border: none;
+    background-color: rgb(81, 81, 81);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    filter: brightness(125%);
+}
